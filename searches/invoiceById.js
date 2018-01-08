@@ -28,8 +28,6 @@ const searchInvoiceById = (z, bundle) => {
             }
             if (value.val == 'Product Details') {
                 let products = value.product;
-                z.console.info('products', products);
-                z.console.info('isArray', products.isArray);
 
                 if (products instanceof Array) {
                     for(let j=0; j < products.length; j++) {
