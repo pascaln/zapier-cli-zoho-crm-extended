@@ -51,23 +51,14 @@ const parseProduct = (productValues) => {
     let product =  {};
     for(let j = 0; j < productValues.length; j++) {
         let productValue = productValues[j];
-        if (productValue.val == 'Product Id') {
-            product.id = productValue.content;
-        }
-        if (productValue.val == 'Quantity') {
-            product.quantity = productValue.content;
-        }
-        if (productValue.val == 'Unit Price') {
-            product.unitPrice = productValue.content;
-        }
-        if (productValue.val == 'Total') {
-            product.total = productValue.content;
-        }
-        if (productValue.val == 'Discount') {
-            product.discount = productValue.content;
-        }
-        if (productValue.val == 'Tax') {
-            product.tax = productValue.content;
+        switch (productValue.val) {
+            case 'Product Id': product.id = productValue.content; break;
+            case 'Product Name': product.name = productValue.content; break;
+            case 'Quantity': product.quantity = productValue.content; break;
+            case 'Unit Price': product.unitPrice = productValue.content; break;
+            case 'Total': product.total = productValue.content; break;
+            case 'Discount':  product.discount = productValue.content; break;
+            case 'Tax': product.tax = productValue.content; break;
         }
     }
 
