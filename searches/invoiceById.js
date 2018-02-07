@@ -1,6 +1,6 @@
 const searchInvoiceById = (z, bundle) => {
     return z.request({
-        url: `https://crm.zoho.eu/crm/private/json/Invoices/getRecordById?authtoken=${bundle.inputData.key}&scope=crmapi&id=${bundle.inputData.id}`,
+        url: `https://crm.zoho.eu/crm/private/json/Invoices/getRecordById?authtoken=${bundle.authData.api_key}&scope=crmapi&id=${bundle.inputData.id}`,
         method: 'GET',
     }).then(response => {
         let result = JSON.parse(response.content);
@@ -79,11 +79,6 @@ module.exports = {
         // This search only has one search field. Your searches might have just one, or many
         // search fields.
         inputFields: [
-            {
-                key: 'key',
-                type: 'string',
-                label: 'API Key',
-            },
             {
                 key: 'id',
                 type: 'integer',
