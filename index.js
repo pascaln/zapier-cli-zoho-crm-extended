@@ -1,6 +1,6 @@
 // We can roll up all our behaviors in an App.
 const InvoiceById = require('./searches/invoiceById');
-const NoteToContact = require('./creates/addNoteToContact');
+const NoteToEntity = require('./creates/addNoteToEntity');
 
 const authentication = {
   type: 'custom',
@@ -48,7 +48,7 @@ const App = {
 
   // If you want your creates to show up, you better include it here!
   creates: {
-    [NoteToContact.key]: NoteToContact,
+    [NoteToEntity.key]: NoteToEntity,
   }
 };
 

@@ -1,6 +1,6 @@
 const addNoteToContact = (z, bundle) => {
     let url = `https://crm.zoho.eu/crm/private/json/Notes/insertRecords?authtoken=${bundle.authData.api_key}&newFormat=1&version=2&duplicateCheck=2&wfTrigger=true`;
-    url += '&xmlData=' + createAPIXML('Notes', [{'entityId': bundle.inputData.contactId, 'Note Title' : bundle.inputData.title, 'Note Content' : bundle.inputData.content}] );
+    url += '&xmlData=' + createAPIXML('Notes', [{'entityId': bundle.inputData.entityId, 'Note Title' : bundle.inputData.title, 'Note Content' : bundle.inputData.content}] );
     
     return z.request({
        url: url,
@@ -57,9 +57,9 @@ module.exports = {
         // search fields.
         inputFields: [
             {
-                key: 'contactId',
+                key: 'entityId',
                 type: 'integer',
-                label: 'Contact Id',
+                label: 'Entity Id',
             },            
             {
                 key: 'title',
