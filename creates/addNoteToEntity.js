@@ -41,14 +41,14 @@ const createAPIXML = (module, data) => {
 }
 
 module.exports = {
-    key: 'note_to_contact',
+    key: 'note_to_entity',
 
     // You'll want to provide some helpful display labels and descriptions
     // for users. Zapier will put them into the UX.
     noun: 'ContactNote',
     display: {
-        label: 'Add a Note to a Contact',
-        description: 'Adds a note to a contact'
+        label: 'Add a Note to a Entity',
+        description: 'Adds a note to a entity'
     },
 
     // `operation` is where we make the call to your API to do the search
