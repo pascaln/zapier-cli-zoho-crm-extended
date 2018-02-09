@@ -1,6 +1,7 @@
+const helper = require('../helper');
 const addNoteToContact = (z, bundle) => {
     let url = `https://crm.zoho.eu/crm/private/json/Notes/insertRecords?authtoken=${bundle.authData.api_key}&newFormat=1&version=2&duplicateCheck=2&wfTrigger=true`;
-    url += '&xmlData=' + createAPIXML('Notes', [{'entityId': bundle.inputData.entityId, 'Note Title' : bundle.inputData.title, 'Note Content' : bundle.inputData.content}] );
+    url += '&xmlData=' + helper.createAPIXML('Notes', [{'entityId': bundle.inputData.entityId, 'Note Title' : bundle.inputData.title, 'Note Content' : bundle.inputData.content}] );
     
     return z.request({
        url: url,
@@ -21,23 +22,6 @@ const addNoteToContact = (z, bundle) => {
         }
         return note;
     });
-}
-
-const createAPIXML = (module, data) => {
-    let xml = '<' + module +'>';
-    for (let i = 0; i < data.length; i++) {
-        let values = data[i];
-        xml += '<row no="' + (i + 1) +'">';
-        
-        for (let key in values) {
-            xml += '<FL val="' + key + '"><![CDATA[' + values[key].trim() +']]></FL>'
-        }    
-        
-        xml += '</row>';
-    }
-    xml += '</' + module +'>';
-
-    return xml;
 }
 
 module.exports = {

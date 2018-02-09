@@ -3,6 +3,7 @@ const InvoiceById = require('./searches/invoiceById');
 const AccountById = require('./searches/accountById');
 const ContactById = require('./searches/contactById');
 const NoteToEntity = require('./creates/addNoteToEntity');
+const UpdateSingleFieldOfEntity = require('./creates/updateSingleFieldIfChanged');
 
 const authentication = {
   type: 'custom',
@@ -53,6 +54,7 @@ const App = {
   // If you want your creates to show up, you better include it here!
   creates: {
     [NoteToEntity.key]: NoteToEntity,
+    [UpdateSingleFieldOfEntity.key]: UpdateSingleFieldOfEntity,
   }
 };
 
