@@ -2,8 +2,10 @@
 const InvoiceById = require('./searches/invoiceById');
 const AccountById = require('./searches/accountById');
 const ContactById = require('./searches/contactById');
+const EntityByCriteria = require('./searches/entity');
 const NoteToEntity = require('./creates/addNoteToEntity');
 const UpdateSingleFieldOfEntity = require('./creates/updateSingleFieldIfChanged');
+const DealsLastStageUpdate = require('./triggers/lastModifiedTriggersByStageAndLastStageUpdate');
 
 const authentication = {
   type: 'custom',
@@ -42,6 +44,7 @@ const App = {
 
   // If you want your trigger to show up, you better include it here!
   triggers: {
+    [DealsLastStageUpdate.key]: DealsLastStageUpdate,
   },
 
   // If you want your searches to show up, you better include it here!
@@ -49,6 +52,7 @@ const App = {
     [InvoiceById.key]: InvoiceById,
     [AccountById.key]: AccountById,
     [ContactById.key]: ContactById,
+    [EntityByCriteria.key]: EntityByCriteria,
   },
 
   // If you want your creates to show up, you better include it here!
