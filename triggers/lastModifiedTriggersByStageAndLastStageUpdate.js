@@ -18,6 +18,10 @@ const triggerDealsWithStageAndLastStageUpdate = (z, bundle) => {
         method: 'GET',
     }).then(response => {
         let result = JSON.parse(response.content);
+        if (result.response.result == undefined || result.response.result.Deals == undefined) {
+            return [];
+        }
+
         let values = result.response.result.Deals.row;
 
         let results = [];
