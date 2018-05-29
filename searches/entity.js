@@ -4,6 +4,9 @@ const searchEntityByCriteria = (z, bundle) => {
         method: 'GET',
     }).then(response => {
         let result = JSON.parse(response.content);
+        if (result.response.nodata !== undefined) {
+            return [];
+        }
         let values = result.response.result[bundle.inputData.module].row;
 
         let results = [];
