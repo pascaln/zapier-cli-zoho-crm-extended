@@ -17,6 +17,9 @@ const searchInvoiceById = (z, bundle) => {
             if (value.val == 'Invoice Date') {
                 invoice.date = value.content;
             }
+            if (value.val == 'Due Date') {
+                invoice.duedate = value.content;
+            }
             if (value.val == 'Invoice Number') {
                 invoice.number = value.content;
             }
@@ -25,6 +28,12 @@ const searchInvoiceById = (z, bundle) => {
             }
             if (value.val == 'CONTACTID') {
                 invoice.contactId = value.content;
+            }
+            if (value.val == 'Area') {
+                invoice.area = value.content;
+            }
+            if (value.val == 'Product Start Date') {
+                invoice.productStartDate = value.content;
             }
             if (value.val == 'Product Details') {
                 let products = value.product;
